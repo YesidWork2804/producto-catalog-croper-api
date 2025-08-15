@@ -24,6 +24,7 @@ export class Product {
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
+
 // Índices para optimizar búsquedas
 ProductSchema.index({ nombre: 1 });
 ProductSchema.index({ categoria: 1 });

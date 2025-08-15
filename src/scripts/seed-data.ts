@@ -10,18 +10,14 @@ async function seedDatabase() {
   const productsService = app.get(ProductsService);
 
   try {
-    console.log('🌱 Iniciando seed de la base de datos...');
-
-    // Crear usuario de prueba
-    console.log('👤 Creando usuario de prueba...');
+    // Usuario de prueba
     await authService.register({
       email: 'admin@test.com',
       password: 'password123',
       nombre: 'Administrador de Prueba',
     });
 
-    // Crear productos de prueba
-    console.log('📦 Creando productos de prueba...');
+    // Productos de prueba
     const productosEjemplo = [
       {
         nombre: 'iPhone 14 Pro',
@@ -88,10 +84,6 @@ async function seedDatabase() {
     for (const producto of productosEjemplo) {
       await productsService.create(producto);
     }
-
-    console.log('✅ Seed completado exitosamente!');
-    console.log('👤 Usuario de prueba: admin@test.com / password123');
-    console.log(`📦 ${productosEjemplo.length} productos creados`);
   } catch (error) {
     console.error('❌ Error durante el seed:', error.message);
   } finally {

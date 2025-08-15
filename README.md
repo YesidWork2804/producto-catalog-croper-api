@@ -230,18 +230,6 @@ volumes:
 | `NODE_ENV` | Entorno de ejecución | `development` |
 | `PORT` | Puerto del servidor | `3000` |
 
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crea una rama feature (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
-
 ## 🎯 Próximas Mejoras
 
 - [ ] Tests unitarios y e2e
@@ -251,7 +239,3 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 - [ ] Upload de imágenes
 - [ ] Notificaciones en tiempo real
 - [ ] Métricas y monitoreo
-
-## 👨‍💻 Autor
-
-Desarrollado como prueba técnica de Full Stack Developer.

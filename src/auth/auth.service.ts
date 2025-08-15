@@ -30,7 +30,6 @@ export class AuthService {
       throw new UnauthorizedException('Credenciales incorrectas');
     }
 
-    // Generar token JWT - usar String() para convertir ObjectId a string
     const userId = String(user._id);
     const payload = { email: user.email, sub: userId };
     const accessToken = this.jwtService.sign(payload);

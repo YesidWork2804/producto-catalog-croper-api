@@ -19,7 +19,7 @@ export class UsersService {
       throw new ConflictException('El email ya está registrado');
     }
 
-    // Encriptar la contraseña
+    // Encriptación de contraseña
     const saltRounds = 12;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -30,7 +30,6 @@ export class UsersService {
 
     const savedUser = await createdUser.save();
 
-    // Retornar usuario sin la contraseña
     return {
       _id: savedUser._id.toString(),
       email: savedUser.email,
