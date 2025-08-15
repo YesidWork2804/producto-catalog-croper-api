@@ -1,98 +1,257 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# API Catálogo de Productos
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API REST desarrollada con NestJS y MongoDB para gestionar un catálogo de productos con autenticación JWT.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Características
 
-## Description
+- **CRUD completo** para productos
+- **Autenticación JWT** con registro e inicio de sesión
+- **Validaciones robustas** con class-validator
+- **Documentación automática** con Swagger/OpenAPI
+- **Paginación y filtros** en listado de productos
+- **Búsqueda** por nombre y descripción
+- **Gestión de categorías**
+- **Código limpio y bien estructurado**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tecnologías
 
-## Project setup
+- **NestJS** - Framework de Node.js
+- **MongoDB** - Base de datos NoSQL
+- **Mongoose** - ODM para MongoDB
+- **JWT** - Autenticación con tokens
+- **Swagger** - Documentación de API
+- **TypeScript** - Tipado estático
+- **Class-validator** - Validación de datos
 
-```bash
-$ npm install
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── main.ts                    # Punto de entrada
+├── app.module.ts             # Módulo principal
+├── config/                   # Configuraciones
+├── auth/                     # Autenticación JWT
+├── users/                    # Gestión de usuarios
+├── products/                 # CRUD de productos
+└── scripts/                  # Scripts auxiliares
 ```
 
-## Compile and run the project
+## 🔧 Instalación
 
+1. **Clonar el repositorio**
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone <url-del-repositorio>
+cd producto-catalog-api
 ```
 
-## Run tests
-
+2. **Instalar dependencias**
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
+3. **Configurar variables de entorno**
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+cp .env.example .env
+# Editar .env con tus configuraciones
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+4. **Iniciar MongoDB**
+```bash
+# Con Docker
+docker run -d -p 27017:27017 --name mongodb mongo:latest
 
-## Resources
+# O instalar MongoDB localmente
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+5. **Poblar base de datos (opcional)**
+```bash
+npm run seed
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+6. **Ejecutar la aplicación**
+```bash
+# Desarrollo
+npm run start:dev
 
-## Support
+# Producción
+npm run build
+npm run start:prod
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+## 📖 Documentación de la API
 
-## Stay in touch
+Una vez ejecutando la aplicación, visita:
+- **Swagger UI**: http://localhost:3000/api/docs
+- **JSON Schema**: http://localhost:3000/api/docs-json
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🔐 Autenticación
 
-## License
+### Registro de Usuario
+```bash
+POST /auth/register
+Content-Type: application/json
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+{
+  "email": "usuario@example.com",
+  "password": "password123",
+  "nombre": "Juan Pérez"
+}
+```
+
+### Inicio de Sesión
+```bash
+POST /auth/login
+Content-Type: application/json
+
+{
+  "email": "usuario@example.com",
+  "password": "password123"
+}
+```
+
+### Usar Token
+```bash
+Authorization: Bearer <tu-jwt-token>
+```
+
+## 📦 Endpoints de Productos
+
+| Método | Endpoint | Descripción |
+|--------|----------|-------------|
+| GET | `/products` | Listar productos (con paginación y filtros) |
+| GET | `/products/:id` | Obtener producto por ID |
+| POST | `/products` | Crear nuevo producto |
+| PATCH | `/products/:id` | Actualizar producto |
+| DELETE | `/products/:id` | Eliminar producto |
+| GET | `/products/categories` | Obtener categorías disponibles |
+
+### Ejemplos de Uso
+
+**Crear Producto:**
+```bash
+POST /products
+Authorization: Bearer <token>
+Content-Type: application/json
+
+{
+  "nombre": "iPhone 15 Pro",
+  "descripcion": "Smartphone Apple última generación",
+  "precio": 1199.99,
+  "categoria": "Electrónicos"
+}
+```
+
+**Listar con Filtros:**
+```bash
+GET /products?page=1&limit=10&categoria=Electrónicos&search=iPhone
+```
+
+## ✅ Validaciones Implementadas
+
+### Productos
+- **nombre**: Requerido, máximo 100 caracteres
+- **descripcion**: Opcional, máximo 500 caracteres
+- **precio**: Requerido, debe ser mayor que 0, máximo 2 decimales
+- **categoria**: Requerido, máximo 50 caracteres
+
+### Usuarios
+- **email**: Formato de email válido, único
+- **password**: Mínimo 6 caracteres
+- **nombre**: Máximo 100 caracteres
+
+## 🔒 Seguridad
+
+- **Hash de contraseñas** con bcrypt (12 rounds)
+- **Tokens JWT** con expiración de 1 hora
+- **Validación de entrada** en todos los endpoints
+- **Guards de autenticación** en rutas protegidas
+- **Sanitización de datos** automática
+
+## 🧪 Testing
+
+```bash
+# Tests unitarios
+npm run test
+
+# Tests con cobertura
+npm run test:cov
+
+# Tests e2e
+npm run test:e2e
+```
+
+## 🐳 Docker (Opcional)
+
+```dockerfile
+# Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+
+COPY . .
+RUN npm run build
+
+EXPOSE 3000
+CMD ["npm", "run", "start:prod"]
+```
+
+```yaml
+# docker-compose.yml
+version: '3.8'
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017/productos_db
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
+```
+
+## 📝 Variables de Entorno
+
+| Variable | Descripción | Valor por defecto |
+|----------|-------------|-------------------|
+| `MONGODB_URI` | URL de conexión a MongoDB | `mongodb://localhost:27017/productos_db` |
+| `JWT_SECRET` | Clave secreta para JWT | (cambiar en producción) |
+| `NODE_ENV` | Entorno de ejecución | `development` |
+| `PORT` | Puerto del servidor | `3000` |
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit tus cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## 🎯 Próximas Mejoras
+
+- [ ] Tests unitarios y e2e
+- [ ] Rate limiting
+- [ ] Logs estructurados
+- [ ] Caching con Redis
+- [ ] Upload de imágenes
+- [ ] Notificaciones en tiempo real
+- [ ] Métricas y monitoreo
+
+## 👨‍💻 Autor
+
+Desarrollado como prueba técnica de Full Stack Developer.
